@@ -1,0 +1,91 @@
+body {
+    background-color: #f9f6f6;
+}
+.large-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px; /* Largura do botão */
+    height: 150px; /* Altura do botão */
+    margin: 20px; /* Margem entre os botões */
+    border: none;
+    border-radius: 10px;
+    background-color: #f0f0f0; /* Cor de fundo do botão */
+    font-size: 16px;
+    font-weight: bold;
+    color: #333; /* Cor do texto do botão */
+    cursor: pointer;
+}
+
+.large-button img {
+    max-width: 200px; /* Largura máxima da imagem dentro do botão */
+    max-height: 150px; /* Altura máxima da imagem dentro do botão */
+    margin-bottom: 1px; /* Margem abaixo da imagem */
+}
+
+.large-button:hover {
+    background-color: #f0f0f0; /* Cor de fundo do botão ao passar o mouse */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .search-container {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  .search-button {
+    padding: 10px 20px;  
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .user-data {
+    margin-top: 20px;
+  }
+  
+  .user-data p {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .user-data strong {
+    font-weight: bold;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  .ddd-input {
+    width: 50px; /* Defina o tamanho desejado */
+  }
