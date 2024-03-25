@@ -1,0 +1,86 @@
+.container {
+    font-family: Arial, sans-serif;
+  }
+  
+  .search-container {
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .cep-data {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .cep-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .cep-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .cep-table td:first-child {
+    font-weight: bold;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+  }
+  
+  .button-container button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button-container button:hover {
+    background-color: #0056b3;
+  }
+  .empresa-data {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .empresa-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .emprea-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .empresa-table td:first-child {
+    font-weight: bold;
+  }

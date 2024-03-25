@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import html2pdf from 'html2pdf.js'; // Importação da biblioteca para gerar PDF a partir do HTML
+import { CopyToClipboard } from 'react-copy-to-clipboard'; // Importação do componente para copiar para a área de transferência
+// import './Cep.css'; // Importação do arquivo CSS para estilização
 
 function Cep() {
   const [cepData, setCepData] = useState(null);
@@ -43,16 +46,60 @@ function Cep() {
       {error && <p className="error">{error}</p>}
       {cepData && (
         <div className="cep-data">
-          <p><strong>CEP:</strong> {cepData.cep}</p>
-          <p><strong>Logradouro:</strong> {cepData.logradouro}</p>
-          <p><strong>Complemento:</strong> {cepData.complemento}</p>
-          <p><strong>Bairro:</strong> {cepData.bairro}</p>
-          <p><strong>Localidade:</strong> {cepData.localidade}</p>
-          <p><strong>UF:</strong> {cepData.uf}</p>
-          <p><strong>IBGE:</strong> {cepData.ibge}</p>
-          <p><strong>GIA:</strong> {cepData.gia}</p>
-          <p><strong>DDD:</strong> {cepData.ddd}</p>
-          <p><strong>SIAFI:</strong> {cepData.siafi}</p>
+          <h2>Dados do CEP</h2>
+          <table className="cep-table">
+            <tbody>
+              <tr>
+                <td><strong>CEP:</strong></td>
+                <td>{cepData.cep}</td>
+              </tr>
+              <tr>
+                <td><strong>Logradouro:</strong></td>
+                <td>{cepData.logradouro}</td>
+              </tr>
+              <tr>
+                <td><strong>Complemento:</strong></td>
+                <td>{cepData.complemento}</td>
+              </tr>
+              <tr>
+                <td><strong>Bairro:</strong></td>
+                <td>{cepData.bairro}</td>
+              </tr>
+              <tr>
+                <td><strong>Localidade:</strong></td>
+                <td>{cepData.localidade}</td>
+              </tr>
+              <tr>
+                <td><strong>UF:</strong></td>
+                <td>{cepData.uf}</td>
+              </tr>
+              <tr>
+                <td><strong>IBGE:</strong></td>
+                <td>{cepData.ibge}</td>
+              </tr>
+              <tr>
+                <td><strong>GIA:</strong></td>
+                <td>{cepData.gia}</td>
+              </tr>
+              <tr>
+                <td><strong>DDD:</strong></td>
+                <td>{cepData.ddd}</td>
+              </tr>
+              <tr>
+                <td><strong>SIAFI:</strong></td>
+                <td>{cepData.siafi}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="button-container">
+            <button onClick={() => {
+              const element = document.querySelector('.cep-data');
+              html2pdf().from(element).save();
+            }}>Gerar PDF</button>
+            <CopyToClipboard text={JSON.stringify(cepData, null, 2)}>
+              <button>Copiar</button>
+            </CopyToClipboard>
+          </div>
         </div>
       )}
     </div>

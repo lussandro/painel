@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import html2pdf from 'html2pdf.js';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import './Cep.css'; 
+
 
 function Cnpj() {
   const [empresaData, setEmpresaData] = useState(null);
@@ -13,7 +17,7 @@ function Cnpj() {
   const fetchData = async () => {
     try {
       const response = await axios.get(`https://minhareceita.org/${cnpj}`);
-      setEmpresaData(response.data); // Accessing complete data from response
+      setEmpresaData(response.data);
       setError(null);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -43,19 +47,72 @@ function Cnpj() {
       {error && <p className="error">{error}</p>}
       {empresaData && (
         <div className="empresa-data">
-          <p><strong>CNPJ:</strong> {empresaData.cnpj}</p>
-          <p><strong>Razão Social:</strong> {empresaData.razao_social}</p>
-          <p><strong>Nome Fantasia:</strong> {empresaData.nome_fantasia}</p>
-          <p><strong>CEP:</strong> {empresaData.cep}</p>
-          <p><strong>Logradouro:</strong> {empresaData.logradouro}</p>
-          <p><strong>Número:</strong> {empresaData.numero}</p>
-          <p><strong>Bairro:</strong> {empresaData.bairro}</p>
-          <p><strong>Município:</strong> {empresaData.municipio}</p>
-          <p><strong>UF:</strong> {empresaData.uf}</p>
-          <p><strong>Porte:</strong> {empresaData.porte}</p>
-          <p><strong>Natureza Jurídica:</strong> {empresaData.natureza_juridica}</p>
-          <p><strong>Situação Cadastral:</strong> {empresaData.descricao_situacao_cadastral}</p>
-          <p><strong>Capital Social:</strong> {empresaData.capital_social}</p>
+          <h2>Dados da Empresa</h2>
+          <table className="empresa-table">
+            <tbody>
+              <tr>
+                <td><strong>CNPJ:</strong></td>
+                <td>{empresaData.cnpj}</td>
+              </tr>
+              <tr>
+                <td><strong>Razão Social:</strong></td>
+                <td>{empresaData.razao_social}</td>
+              </tr>
+              <tr>
+                <td><strong>Nome Fantasia:</strong></td>
+                <td>{empresaData.nome_fantasia}</td>
+              </tr>
+              <tr>
+                <td><strong>CEP:</strong></td>
+                <td>{empresaData.cep}</td>
+              </tr>
+              <tr>
+                <td><strong>Logradouro:</strong></td>
+                <td>{empresaData.logradouro}</td>
+              </tr>
+              <tr>
+                <td><strong>Número:</strong></td>
+                <td>{empresaData.numero}</td>
+              </tr>
+              <tr>
+                <td><strong>Bairro:</strong></td>
+                <td>{empresaData.bairro}</td>
+              </tr>
+              <tr>
+                <td><strong>Município:</strong></td>
+                <td>{empresaData.municipio}</td>
+              </tr>
+              <tr>
+                <td><strong>UF:</strong></td>
+                <td>{empresaData.uf}</td>
+              </tr>
+              <tr>
+                <td><strong>Porte:</strong></td>
+                <td>{empresaData.porte}</td>
+              </tr>
+              <tr>
+                <td><strong>Natureza Jurídica:</strong></td>
+                <td>{empresaData.natureza_juridica}</td>
+              </tr>
+              <tr>
+                <td><strong>Situação Cadastral:</strong></td>
+                <td>{empresaData.descricao_situacao_cadastral}</td>
+              </tr>
+              <tr>
+                <td><strong>Capital Social:</strong></td>
+                <td>{empresaData.capital_social}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="button-container">
+            <button onClick={() => {
+              const element = document.querySelector('.empresa-data');
+              html2pdf().from(element).save();
+            }}>Gerar PDF</button>
+            <CopyToClipboard text={JSON.stringify(empresaData, null, 2)}>
+              <button>Copiar</button>
+            </CopyToClipboard>
+          </div>
         </div>
       )}
     </div>
