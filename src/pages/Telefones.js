@@ -17,7 +17,7 @@ function Telefones() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://cpf.lussandro.com.br/api/consulta_telefone?ddd=${ddd}&telefone=${telefone}`);
+      const response = await axios.get(`https://cpf.lussandro.com.br/api/consulta_telefone?ddd=${ddd}&telefone=${telefone}`);
       setTelefoneData(response.data.data);
       setError(null);
     } catch (error) {
