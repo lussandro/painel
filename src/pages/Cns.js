@@ -31,6 +31,13 @@ function Cns() {
     const element = document.getElementById('cpf-data');
     html2pdf().from(element).save();
   };
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
 
   const handleCopyToClipboard = () => {
     // Lógica para copiar os dados para a área de transferência
@@ -65,8 +72,9 @@ function Cns() {
                 <td>{userData.NOME}</td>
               </tr>
               <tr>
+
                 <td><strong>NASC:</strong></td>
-                <td>{userData.NASC}</td>
+                <td>{formatDate(userData.NASC)}</td>
               </tr>
               <tr>
                 <td><strong>SEXO:</strong></td>

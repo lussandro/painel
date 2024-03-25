@@ -30,6 +30,14 @@ function Emails() {
     fetchData();
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
   return (
     <div className="container">
       <h1>Consulta E-mails por CPF</h1>
@@ -71,7 +79,7 @@ function Emails() {
               </tr>
               <tr>
                 <td><strong>NASCIMENTO:</strong></td>
-                <td>{userData.NASC}</td>
+                <td>{formatDate(userData.NASC)}</td>
               </tr>
               <tr>
                 <td><strong>SEXO:</strong></td>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import html2pdf from 'html2pdf.js'; // Importe a biblioteca para gerar PDF
-import copy from 'react-copy-to-clipboard'; // Importe a biblioteca para copiar para a área de transferência
+import { CopyToClipboard } from 'react-copy-to-clipboard'; // Importe a biblioteca para copiar para a área de transferência
 
 function Cpf() {
   const [userData, setUserData] = useState(null);
@@ -27,6 +27,14 @@ function Cpf() {
     fetchData();
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
   const handleGeneratePDF = () => {
     // Lógica para gerar o PDF com os dados
     const element = document.getElementById('cpf-data');
@@ -36,7 +44,7 @@ function Cpf() {
   const handleCopyToClipboard = () => {
     // Lógica para copiar os dados para a área de transferência
     const textToCopy = JSON.stringify(userData); // Convertendo os dados em formato JSON
-    copy(textToCopy);
+    navigator.clipboard.writeText(textToCopy);
     alert('Dados copiados para a área de transferência!');
   };
 
@@ -67,7 +75,7 @@ function Cpf() {
               </tr>
               <tr>
                 <td><strong>NASC:</strong></td>
-                <td>{userData.NASC}</td>
+                <td>{formatDate(userData.NASC)}</td>
               </tr>
               <tr>
                 <td><strong>SEXO:</strong></td>
@@ -185,13 +193,13 @@ function Cpf() {
           {/* Botões para gerar PDF e copiar */}
           <div className="button-container">
             <button onClick={handleGeneratePDF} className="generate-pdf-button">
-              Gerar PDF
+            Gerar PDF
             </button>
-            <copy text={JSON.stringify(userData)}>
-              <button className="copy-to-clipboard-button">
+            <CopyToClipboard text={JSON.stringify(userData)}>
+              <button className="copy-to-clipboard-button" onClick={handleCopyToClipboard}>
                 Copiar Dados
               </button>
-            </copy>
+            </CopyToClipboard>
           </div>
         </div>
       )}

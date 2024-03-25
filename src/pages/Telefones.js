@@ -30,6 +30,7 @@ function Telefones() {
     fetchData();
   };
 
+
   return (
     <div className="container">
       <h1>Consulta de Telefones</h1>
