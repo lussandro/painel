@@ -1,86 +1,80 @@
 .container {
-    font-family: Arial, sans-serif;
-  }
-  
-  .search-container {
-    margin-bottom: 20px;
-  }
-  
-  .search-input {
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  .search-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .search-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .cep-data {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  
-  .cep-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .cep-table td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .cep-table td:first-child {
-    font-weight: bold;
-  }
-  
-  .button-container {
-    margin-top: 20px;
-  }
-  
-  .button-container button {
-    margin-right: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .button-container button:hover {
-    background-color: #0056b3;
-  }
-  .empresa-data {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  
-  .empresa-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .emprea-table td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .empresa-table td:first-child {
-    font-weight: bold;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #121212; /* Cor de fundo do contêiner */
+  color: #fff; /* Cor do texto */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #333; /* Cor de fundo da entrada de pesquisa */
+  color: #fff; /* Cor do texto da entrada de pesquisa */
+  border: 1px solid #555; /* Cor da borda da entrada de pesquisa */
+  border-radius: 5px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff; /* Cor de fundo do botão de pesquisa */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0056b3; /* Cor de fundo do botão de pesquisa ao passar o mouse */
+}
+
+.cep-data,
+.empresa-data {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #212121; /* Cor de fundo das áreas de dados */
+}
+
+.cep-table,
+.empresa-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cep-table td,
+.empresa-table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  color: #fff; /* Cor do texto nas células da tabela */
+}
+
+.cep-table td:first-child,
+.empresa-table td:first-child {
+  font-weight: bold;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.button-container button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: #0056b3;
+}

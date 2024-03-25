@@ -1,7 +1,7 @@
 .site .navbar {
-    box-shadow: 2px 0px 9px 2px #ccc;
+    box-shadow: 2px 0px 9px 2px #000; /* Sombra do navbar */
     padding: 10px 20px;
-    background-color: #FFFFFF;
+    background-color: #101827; /* Cor de fundo do navbar */
 }
 
 .navbar .user-ciclo {
@@ -12,6 +12,6 @@
 .navbar .btn-menu {
     background-color: transparent;
     border: none;
-    color: rgb(163, 152, 152);
+    color: #fff; /* Cor do ícone do menu */
     font-size: 30px;
 }

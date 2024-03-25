@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import html2pdf from 'html2pdf.js'; // Importe a biblioteca para gerar PDF
+import copy from 'react-copy-to-clipboard'; // Importe a biblioteca para copiar para a área de transferência
 
 function Cns() {
   const [userData, setUserData] = useState(null);
@@ -24,6 +26,18 @@ function Cns() {
   const handleSearch = () => {
     fetchData();
   };
+  const handleGeneratePDF = () => {
+    // Lógica para gerar o PDF com os dados
+    const element = document.getElementById('cpf-data');
+    html2pdf().from(element).save();
+  };
+
+  const handleCopyToClipboard = () => {
+    // Lógica para copiar os dados para a área de transferência
+    const textToCopy = JSON.stringify(userData); // Convertendo os dados em formato JSON
+    copy(textToCopy);
+    alert('Dados copiados para a área de transferência!');
+  };
 
   return (
     <div className="container">
@@ -42,37 +56,142 @@ function Cns() {
       </div>
       {error && <p className="error">{error}</p>}
       {userData && (
-        <div className="user-data">
-          <h2><strong>Dados Básicos</strong></h2>
-          <h3><p><strong>NOME:</strong> {userData.NOME}</p></h3>
-          <p><strong>NASC:</strong> {userData.NASC}</p>
-          <p><strong>SEXO:</strong> {userData.SEXO}</p>
-          <p><strong>CPF:</strong> {userData.CPF}</p>
-          <p><strong>RG:</strong> {userData.RG}</p>
-          <p><strong>ORGAO_EMISSOR:</strong> {userData.ORGAO_EMISSOR}</p>
-          <p><strong>UF EMISSAO:</strong> {userData.UF_EMISSAO}</p>
-          <p><strong>TITULO ELEITOR:</strong> {userData.TITULO_ELEITOR}</p>
-          <p><strong>CNS:</strong> {userData.cns}</p>
-          <p><strong>NOME DA MAE:</strong> {userData.NOME_MAE}</p>
-          <p><strong>NOME DO PAI:</strong> {userData.NOME_PAI}</p>
-          <p><strong>ESTADO CIVIL:</strong> {userData.ESTCIV}</p>
-          <p><strong>NACIONALIDE:</strong> {userData.NACIONALID}</p>
-          <h2><strong>Telefones</strong></h2>
-          <p><strong>TELEFONE:</strong> {userData.telefone}</p>
-          <p><strong>TELEFONE2:</strong> {userData.telefone2}</p>
-          <p><strong>TELEFONE3:</strong> {userData.telefone3}</p>
-          <h2><strong>Endereço:</strong></h2>
-          <p><strong>LOGRADOURO:</strong> {userData.enderecoLogr}</p>
-          <p><strong>NUMERO:</strong> {userData.enderecoNu}</p>
-          <p><strong>BAIRRO:</strong> {userData.enderecoBa}</p>
-          <p><strong>CIDADE:</strong> {userData.enderecoMuni}</p>
-          <p><strong>CEP:</strong> {userData.enderecoCe}</p>
-          <h2><strong>Dados Sócio-econômicos:</strong></h2>
-          <p><strong>OCUPACAO:</strong> {userData.OCUPACAO}</p>
-          <p><strong>RENDA:</strong> {userData.RENDA}</p>
-          <p><strong>MOSAICO NOVO - Segmento:</strong> {userData.MOSAICO_NOVO && userData.MOSAICO_NOVO.Segmento}</p>
-          <p><strong>MOSAICO SECUNDARIO - Segmento:</strong> {userData.MOSAICO_SECUNDARIO && userData.MOSAICO_SECUNDARIO.Segmento}</p>
-          
+        <div className="user-data" id="cpf-data">
+          <h2>Dados Básicos</h2>
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>NOME:</strong></td>
+                <td>{userData.NOME}</td>
+              </tr>
+              <tr>
+                <td><strong>NASC:</strong></td>
+                <td>{userData.NASC}</td>
+              </tr>
+              <tr>
+                <td><strong>SEXO:</strong></td>
+                <td>{userData.SEXO}</td>
+              </tr>
+              <tr>
+                <td><strong>CPF:</strong></td>
+                <td>{userData.CPF}</td>
+              </tr>
+              <tr>
+                <td><strong>RG:</strong></td>
+                <td>{userData.RG}</td>
+              </tr>
+              <tr>
+                <td><strong>ORGAO_EMISSOR:</strong></td>
+                <td>{userData.ORGAO_EMISSOR}</td>
+              </tr>
+              <tr>
+                <td><strong>UF EMISSAO:</strong></td>
+                <td>{userData.UF_EMISSAO}</td>
+              </tr>
+              <tr>
+                <td><strong>TITULO ELEITOR:</strong></td>
+                <td>{userData.TITULO_ELEITOR}</td>
+              </tr>
+              <tr>
+                <td><strong>CNS:</strong></td>
+                <td>{userData.cns}</td>
+              </tr>
+              <tr>
+                <td><strong>NOME DA MAE:</strong></td>
+                <td>{userData.NOME_MAE}</td>
+              </tr>
+              <tr>
+                <td><strong>NOME DO PAI:</strong></td>
+                <td>{userData.NOME_PAI}</td>
+              </tr>
+              <tr>
+                <td><strong>ESTADO CIVIL:</strong></td>
+                <td>{userData.ESTCIV}</td>
+              </tr>
+              <tr>
+                <td><strong>NACIONALIDE:</strong></td>
+                <td>{userData.NACIONALID}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Telefones</h2>
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>TELEFONE:</strong></td>
+                <td>{userData.telefone}</td>
+              </tr>
+              <tr>
+                <td><strong>TELEFONE2:</strong></td>
+                <td>{userData.telefone2}</td>
+              </tr>
+              <tr>
+                <td><strong>TELEFONE3:</strong></td>
+                <td>{userData.telefone3}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Endereço</h2>
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>LOGRADOURO:</strong></td>
+                <td>{userData.enderecoLogr}</td>
+              </tr>
+              <tr>
+                <td><strong>NUMERO:</strong></td>
+                <td>{userData.enderecoNu}</td>
+              </tr>
+              <tr>
+                <td><strong>BAIRRO:</strong></td>
+                <td>{userData.enderecoBa}</td>
+              </tr>
+              <tr>
+                <td><strong>CIDADE:</strong></td>
+                <td>{userData.enderecoMuni}</td>
+              </tr>
+              <tr>
+                <td><strong>CEP:</strong></td>
+                <td>{userData.enderecoCe}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Dados Sócio-econômicos</h2>
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>OCUPACAO:</strong></td>
+                <td>{userData.OCUPACAO}</td>
+              </tr>
+              <tr>
+                <td><strong>RENDA:</strong></td>
+                <td>{userData.RENDA}</td>
+              </tr>
+              <tr>
+                <td><strong>MOSAICO NOVO - Segmento:</strong></td>
+                <td>{userData.MOSAICO_NOVO && userData.MOSAICO_NOVO.Segmento}</td>
+              </tr>
+              <tr>
+                <td><strong>MOSAICO SECUNDARIO - Segmento:</strong></td>
+                <td>{userData.MOSAICO_SECUNDARIO && userData.MOSAICO_SECUNDARIO.Segmento}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          {/* Botões para gerar PDF e copiar */}
+          <div className="button-container">
+            <button onClick={handleGeneratePDF} className="generate-pdf-button">
+              Gerar PDF
+            </button>
+            <copy text={JSON.stringify(userData)}>
+              <button className="copy-to-clipboard-button">
+                Copiar Dados
+              </button>
+            </copy>
+          </div>
         </div>
       )}
     </div>

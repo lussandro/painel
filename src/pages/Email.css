@@ -2,6 +2,8 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #121212; /* Cor de fundo do contêiner */
+  color: #fff; /* Cor do texto */
 }
 
 .search-container {
@@ -14,15 +16,24 @@
   flex: 1;
   padding: 8px;
   font-size: 16px;
+  background-color: #333; /* Cor de fundo da entrada de pesquisa */
+  color: #fff; /* Cor do texto da entrada de pesquisa */
+  border: 1px solid #555; /* Cor da borda da entrada de pesquisa */
+  border-radius: 5px;
 }
 
 .search-button {
   padding: 8px 16px;
   font-size: 16px;
-  background-color: #007bff;
+  background-color: #007bff; /* Cor de fundo do botão de pesquisa */
   color: #fff;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0056b3; /* Cor de fundo do botão de pesquisa ao passar o mouse */
 }
 
 .error {
@@ -36,18 +47,20 @@
 .user-table {
   width: 100%;
   border-collapse: collapse;
-  border: 2px solid #ddd; /* Adicionando borda ao redor da tabela */
+  border: 2px solid #444; /* Cor da borda da tabela de usuário */
 }
 
 .user-table td, .user-table th {
   padding: 8px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #555; /* Cor da borda das células da tabela */
 }
 
 .user-table th {
-  background-color: #f2f2f2;
+  background-color: #121212; /* Cor de fundo do cabeçalho da tabela de usuário */
+  color: #fff; /* Cor do texto do cabeçalho da tabela de usuário */
   text-align: left;
 }
+
 .button-container {
   margin-top: 20px;
 }

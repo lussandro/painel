@@ -4,25 +4,27 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #212121; /* Cor de fundo da barra de título */
+    color: #fff; /* Cor do texto */
 }
 
 .barra-titulo h1 {
     font-size: 1.8em;
     font-weight: 600;
-    color: #333;
+    color: #fff; /* Cor do texto do título */
     margin: 0;
 }
 
-.barra-titulo .breadcrumb{
+.barra-titulo .breadcrumb {
     margin: 0px;
 }
 
 .barra-titulo .breadcrumb a {
-    color: #333;
+    color: #fff; /* Cor do texto do breadcrumb */
     font-size: 0.9em;
     text-decoration: none;
 }
 
 .barra-titulo .breadcrumb li:last-child a {
-    color: #a89a9a !important;
+    color: #a89a9a !important; /* Cor do último item do breadcrumb */
 }

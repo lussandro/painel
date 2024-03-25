@@ -1,332 +1,139 @@
 body {
-    background-color: #f9f6f6;
+  background-color: #121212; /* Cor de fundo do corpo */
+  color: #fff; /* Cor do texto */
 }
+
 .large-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 200px; /* Largura do botão */
-    height: 150px; /* Altura do botão */
-    margin: 20px; /* Margem entre os botões */
-    border: none;
-    border-radius: 10px;
-    background-color: #f0f0f0; /* Cor de fundo do botão */
-    font-size: 16px;
-    font-weight: bold;
-    color: #333; /* Cor do texto do botão */
-    cursor: pointer;
+  display: inline-block; /* Alterado para inline-block para os botões ficarem lado a lado */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 150px;
+  margin: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #121212; /* Cor de fundo do botão */
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff; /* Cor do texto do botão */
+  cursor: pointer;
 }
 
 .large-button img {
-    max-width: 200px; /* Largura máxima da imagem dentro do botão */
-    max-height: 150px; /* Altura máxima da imagem dentro do botão */
-    margin-bottom: 1px; /* Margem abaixo da imagem */
+  max-width: 200px;
+  max-height: 150px;
+  margin-bottom: 1px;
 }
 
 .large-button:hover {
-    background-color: #f0f0f0; /* Cor de fundo do botão ao passar o mouse */
+  background-color: #333; /* Cor de fundo do botão ao passar o mouse */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px; /* Adiciona espaço à direita do campo de busca */
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0056b3; /* Cor de fundo do botão de pesquisa ao passar o mouse */
+}
+
+.error {
+  color: red;
+}
+
+.table-container {
+  margin-top: 20px;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #444; /* Cor da borda da tabela de usuário */
+  border-bottom: 1px solid #ddd;
+}
+
+.user-table td,
+.user-table th {
+  padding: 8px;
+  border-bottom: 1px solid #555; /* Cor da borda das células da tabela */
+  border-bottom: 1px solid #ddd;
+}
+
+.user-table th {
+  background-color: #121212; /* Cor de fundo do cabeçalho da tabela de usuário */
+  color: #fff; /* Cor do texto do cabeçalho da tabela de usuário */
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
 .button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  margin-top: 20px;
 }
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .search-container {
-    display: flex;
-    margin-bottom: 20px;
-  }
-  
-  .search-input {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-right: 10px;
-  }
-  
-  .search-button {
-    padding: 10px 20px;  
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .search-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .user-data {
-    margin-top: 20px;
-  }
-  
-  .user-data p {
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-  
-  .user-data strong {
-    font-weight: bold;
-  }
-  
-  .error {
-    color: red;
-    font-weight: bold;
-  }
-  .ddd-input {
-    width: 50px; /* Defina o tamanho desejado */
-  }
-  .email-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .email-table th, .email-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .email-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .search-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .search-input {
-    flex: 1;
-    padding: 8px;
-    font-size: 16px;
-  }
-  
-  .search-button {
-    padding: 8px 16px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .error {
-    color: red;
-  }
-  
-  .table-container {
-    margin-top: 20px;
-  }
-  
-  .user-table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 2px solid #ddd; /* Adicionando borda ao redor da tabela */
-  }
-  
-  .user-table td, .user-table th {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .user-table th {
-    background-color: #f2f2f2;
-    text-align: left;
-  }
-  .button-container {
-    margin-top: 20px;
-  }
-  
-  .button-container button {
-    margin-right: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .button-container button:hover {
-    background-color: #0056b3;
-  }
-  .container {
-    font-family: Arial, sans-serif;
-  }
-  
-  .search-container {
-    margin-bottom: 20px;
-  }
-  
-  .search-input {
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  .search-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .search-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .cep-data {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  
-  .cep-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .cep-table td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .cep-table td:first-child {
-    font-weight: bold;
-  }
-  
-  .button-container {
-    margin-top: 20px;
-  }
-  
-  .button-container button {
-    margin-right: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .button-container button:hover {
-    background-color: #0056b3;
-  }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .search-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .search-input {
-    flex: 1;
-    padding: 8px;
-    font-size: 16px;
-  }
-  
-  .search-button {
-    padding: 8px 16px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .error {
-    color: red;
-  }
-  
-  .table-container {
-    margin-top: 20px;
-  }
-  
-  .user-table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 2px solid #ddd; /* Adicionando borda ao redor da tabela */
-  }
-  
-  .user-table td, .user-table th {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .user-table th {
-    background-color: #f2f2f2;
-    text-align: left;
-  }
-  .button-container {
-    margin-top: 20px;
-  }
-  
-  .button-container button {
-    margin-right: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .button-container button:hover {
-    background-color: #0056b3;
-  }
-  /* Adicione este código ao seu arquivo CSS existente */
+
+.button-container button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: #0056b3;
+}
 
 /* Estilo para a tabela */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  color: #fff; /* Cor do texto da tabela */
 }
 
 /* Estilo para as células da tabela */
-td, th {
-  border: 1px solid #dddddd;
+td,
+th {
+  border: 1px solid #333; /* Cor da borda das células da tabela */
   padding: 8px;
   text-align: left;
 }
 
 /* Estilo para a primeira célula de cada linha (cabeçalho) */
 th {
-  background-color: #f2f2f2;
+  background-color: #121212; /* Cor de fundo do cabeçalho da tabela */
 }
 
 /* Estilo para as células de dados alternadas */
 tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #2c2929; /* Cor de fundo de linhas alternadas */
 }

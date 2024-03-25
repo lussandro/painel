@@ -1,9 +1,10 @@
 .menu {
     width: 300px;
-    background-color: #101827;
+    background-color: #101827; /* Cor de fundo do menu */
     min-height: 100vh;
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     transition: all 0.5s;
 }
 
@@ -22,13 +23,12 @@
     left: -300px;
 }
 
-
 .site .content {
     padding: 10px 20px;
 }
 
 .menu .logo {
-    color: #fff;
+    color: #fff; /* Cor do texto do logo */
     text-align: center;
     font-size: 30px;
     padding: 20px 0;
@@ -37,7 +37,7 @@
 .menu .divisor {
     border-bottom: 1px solid rgb(207, 205, 205);
     margin: 10px auto;
-    width: 90%; 
+    width: 90%;
     display: block;
     margin-bottom: 20px;
 }
@@ -53,7 +53,7 @@
 }
 
 .menu .conteudo-menu .item-menu .link-menu {
-    color: rgb(207, 205, 205);
+    color: rgb(207, 205, 205); /* Cor do texto do menu */
     text-decoration: none;
     font-size: 18px;
     display: block;
@@ -66,9 +66,9 @@
     margin-bottom: 0px;
 }
 
-.menu .conteudo-menu .item-menu .link-menu.active{
-    color: #12b981;
-    background-color: #242a38;
+.menu .conteudo-menu .item-menu .link-menu.active {
+    color: #12b981; /* Cor do texto ativo */
+    background-color: #242a38; /* Cor de fundo do item de menu ativo */
 }
 
 .menu .conteudo-menu .item-menu .link-menu span {
@@ -76,7 +76,7 @@
 }
 
 .menu .conteudo-menu .item-menu .link-menu:hover {
-    background-color: #242a38;
+    background-color: #242a38; /* Cor de fundo do item de menu ao passar o mouse */
 }
 
 .menu .conteudo-menu .item-menu.subitem h3.link-menu::after {
@@ -113,7 +113,7 @@
 }
 
 @media (max-width: 1060px) {
-    .site.aberto, 
+    .site.aberto,
     .site.fechado,
     .site {
         margin: 0px;
@@ -128,7 +128,15 @@
         width: 250px;
     }
 
-    .navbar .btn-menu{transition: all 0.5s;}
-    .site.aberto .navbar .btn-menu {margin-left: 250px;}
-    .site.aberto .navbar .user-ciclo {display: none;}
+    .navbar .btn-menu {
+        transition: all 0.5s;
+    }
+
+    .site.aberto .navbar .btn-menu {
+        margin-left: 250px;
+    }
+
+    .site.aberto .navbar .user-ciclo {
+        display: none;
+    }
 }
