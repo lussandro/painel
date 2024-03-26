@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import html2pdf from 'html2pdf.js'; // Importe a biblioteca para gerar PDF
+import { CopyToClipboard } from 'react-copy-to-clipboard'; // Importe a biblioteca para copiar para a área de transferência
 
 function Telefones() {
   const [telefoneData, setTelefoneData] = useState(null);
@@ -30,6 +32,18 @@ function Telefones() {
     fetchData();
   };
 
+  const handleGeneratePDF = () => {
+    // Lógica para gerar o PDF com os dados
+    const element = document.getElementById('telefone-data');
+    html2pdf().from(element).save();
+  };
+
+  const handleCopyToClipboard = () => {
+    // Lógica para copiar os dados para a área de transferência
+    const textToCopy = JSON.stringify(telefoneData); // Convertendo os dados em formato JSON
+    navigator.clipboard.writeText(textToCopy);
+    alert('Dados copiados para a área de transferência!');
+  };
 
   return (
     <div className="container">
@@ -57,17 +71,65 @@ function Telefones() {
       {error && <p className="error">{error}</p>}
       {telefoneData && (
         <div className="telefone-data">
-          <p><strong>DDD:</strong> {telefoneData[0]}</p>
-          <p><strong>Telefone:</strong> {telefoneData[1]}</p>
-          <p><strong>CPF/CNPJ:</strong> {telefoneData[2]}</p>
-          <p><strong>Nome:</strong> {telefoneData[3]}</p>
-          <p><strong>Tipo:</strong> {telefoneData[4]}</p>
-          <p><strong>Logradouro:</strong> {telefoneData[5]}</p>
-          <p><strong>Número:</strong> {telefoneData[6]}</p>
-          <p><strong>Bairro:</strong> {telefoneData[7]}</p>
-          <p><strong>CEP:</strong> {telefoneData[8]}</p>
-          <p><strong>Cidade:</strong> {telefoneData[9]}</p>
-          <p><strong>Estado:</strong> {telefoneData[10]}</p>
+          <table className="user-table">
+          <h2><center>Dados Básicos</center></h2>
+              <tbody>
+                <tr>
+                  <td><strong>DDD:</strong></td>
+                  <td> {telefoneData[0]}</td>
+                </tr>
+                <tr>
+                  <td><strong>Telefone:</strong></td>
+                  <td> {telefoneData[1]}</td>
+                </tr>
+                <tr>
+                  <td><strong>CPF/CNPJ:</strong></td>
+                  <td> {telefoneData[2]}</td>
+                </tr>
+                <tr>
+                  <td><strong>Nome:</strong> </td>
+                  <td>{telefoneData[3]}</td>
+                </tr>
+                <tr>
+                  <td><strong>Tipo:</strong> </td>
+                  <td>{telefoneData[4]}</td>
+                </tr>
+                <tr>
+                  <td><strong>Logradouro:</strong> </td>
+                  <td>{telefoneData[5]}</td>
+                </tr>
+                <tr>
+                  <td><strong>Número:</strong></td>
+                  <td>{telefoneData[6]}</td>
+                </tr>
+                <tr>
+                  <td><strong>Bairro:</strong></td>
+                  <td>{telefoneData[7]}</td>
+                </tr>
+                <tr>
+                  <td><strong>CEP:</strong> </td>
+                  <td>{telefoneData[8]}</td>
+                </tr>
+                <tr>
+                  <td><strong>Cidade:</strong></td>
+                  <td>{telefoneData[9]}</td>
+                </tr>
+                <tr>
+                  <td><strong>Estado:</strong></td>
+                  <td>{telefoneData[10]}</td>
+                </tr>
+            </tbody>
+          </table>
+          <div className="button-container">
+            <button onClick={handleGeneratePDF} className="generate-pdf-button">
+            Gerar PDF
+            </button>
+            <CopyToClipboard text={JSON.stringify(telefoneData)}>
+              <button className="copy-to-clipboard-button" onClick={handleCopyToClipboard}>
+                Copiar Dados
+              </button>
+            </CopyToClipboard>
+          </div>
         </div>
       )}
     </div>

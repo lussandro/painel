@@ -44,15 +44,48 @@ function Placas() {
       {error && <p className="error">{error}</p>}
       {veiculoData && (
         <div className="veiculo-data">
-          <p><strong>Chassi:</strong> {veiculoData[0]}</p>
-          <p><strong>Placa:</strong> {veiculoData[1]}</p>
-          <p><strong>Ano:</strong> {veiculoData[2]}</p>
-          <p><strong>Cor:</strong> {veiculoData[3]}</p>
-          <p><strong>Modelo:</strong> {veiculoData[4]}</p>
-          <p><strong>Tipo:</strong> {veiculoData[5]}</p>
-          <p><strong>Nacionalidade:</strong> {veiculoData[6]}</p>
-          <p><strong>Classe:</strong> {veiculoData[7]}</p>
-          <p><strong>Motor:</strong> {veiculoData[8]}</p>
+          <table className="user-table">
+            <h2>Dados do Veículo</h2>
+            <tbody>
+              <tr>
+                <td><strong>Chassi:</strong></td>
+                <td>{veiculoData[0]}</td>
+              </tr>
+              <tr>
+                <td><strong>Placa:</strong></td>
+                <td>{veiculoData[1]}</td>
+              </tr>
+              <tr>
+                <td><strong>Ano:</strong></td>
+                <td>{veiculoData[2]}</td>
+              </tr>
+              <tr>
+                <td><strong>Cor:</strong></td>
+                <td>{veiculoData[3]}</td>
+              </tr>
+              <tr>
+                <td><strong>Modelo:</strong></td>
+                <td>{veiculoData[4]}</td>
+              </tr>
+              <tr>
+                <td><strong>Tipo:</strong></td>
+                <td>{veiculoData[5]}</td>
+              </tr>
+              <tr>
+                <td><strong>Nacionalidade:</strong></td>
+                <td>{veiculoData[6]}</td>
+              </tr>
+              <tr>
+                <td><strong>Classe:</strong></td>
+                <td>{veiculoData[7]}</td>
+              </tr>
+              <tr>
+                <td><strong>Motor:</strong></td>
+                <td>{veiculoData[8]}</td>
+              </tr>
+            </tbody>
+          </table>
+
         </div>
       )}
     </div>
