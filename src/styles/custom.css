@@ -137,3 +137,133 @@ th {
 tr:nth-child(even) {
   background-color: #2c2929; /* Cor de fundo de linhas alternadas */
 }
+.custom-button {
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.custom-button:hover {
+  background-color: #162c17;
+  border-color: #162c17;
+}
+
+.custom-button p {
+  margin: 0;
+}
+
+.matrix-container {
+  background-color: #000;
+  color: #0f0; /* Verde */
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.matrix-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.matrix-link {
+  text-decoration: none;
+  color: #0f0;
+  text-align: center;
+  margin: 10px;
+  transition: transform 0.3s;
+}
+
+.matrix-link:hover {
+  transform: scale(1.1);
+}
+.matrix-container {
+  background-color: #000;
+  color: #0f0; /* Verde */
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 50px; /* Ajuste o valor conforme necessário */
+}
+
+.matrix-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.matrix-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.matrix-link {
+  text-decoration: none;
+  color: #0f0;
+  text-align: center;
+  margin: 10px;
+  transition: transform 0.3s;
+}
+
+.matrix-link:hover {
+  transform: scale(1.1);
+}
+
+.matrix-link p {
+  margin: 0;
+}
+.matrix-container {
+  background-color: #000;
+  color: #0f0; /* Verde */
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.matrix-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.matrix-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.matrix-link {
+   text-decoration: none;
+    color: #0f0;
+    text-align: center;
+    margin: 10px;
+    width: calc(100% / 3 - 20px); /* Ajusta a largura para caber três ícones por linha */
+    max-width: 200px; /* Define a largura máxima para evitar que os ícones fiquem muito espaçados */
+    transition: transform 0.3s;
+    border: 2px solid #0f0; /* Adiciona uma borda verde de 2px */
+    border-radius: 5px; /* Adiciona um pequeno raio de borda para uma aparência mais suave */
+    padding: 10px; /* Adiciona um preenchimento interno para os botões */
+}
+
+.matrix-link:hover {
+  transform: scale(1.1);
+}
+
+.matrix-link p {
+  margin: 0;
+}

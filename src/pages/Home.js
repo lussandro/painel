@@ -1,61 +1,88 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAddressCard, faEnvelope, faCar, faIdCard, faIdBadge, faUser, faMapMarkerAlt, faBuilding, faIdCardAlt, faAddressBook, faPhone } from '@fortawesome/free-solid-svg-icons';
 import ContentPage from "../components/Content/ContentPage";
 import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <ContentPage titulo="Consultas Disponíveis" caminho={[{nome: "Dashboard", link: "/"}]}>
-            <div className="button-container">
-                <Link to="/cpf" className="large-button">
-                    <img src="/images/cpf.png" alt="cpf" />
-                    <p>Findy CPF</p>
-                </Link>
-                <Link to="/email" className="large-button">
-                    <img src="/images/email.png" alt="Email" />
-                   <p>Findy e-mail</p>
-                </Link>
-                <Link to="/placas" className="large-button">
-                    <img src="/images/placa.png" alt="Placas" />
-                    <p>Findy Veículos</p>
-                </Link>
-                <Link to="/cns" className="large-button">
-                    <img src="/images/cns.png" alt="CNS" />
-                    <p>Findy CNS</p>
-                </Link>
-            </div>
-            <div className="button-container">
-                <Link to="/tituloeleitor" className="large-button">
-                    <img src="/images/titulo.jpeg" alt="Titulo de Eleitor" />
-                    <p>Findy Tit. Eleitor</p>
-                </Link>
-                <Link to="/nome" className="large-button">
-                    <img src="/images/nome.png" alt="Nome" />
-                    <p>Findy Nome</p>
-                </Link>
-                <Link to="/cep" className="large-button">
-                    <img src="/images/cep.jpg" alt="CEP" />
-                    <p>Findy CEP</p>
-                </Link>
-                <Link to="/cnpj" className="large-button">
-                    <img src="/images/cnpj.jpg" alt="CNPJ" />
-                    <p>Findy CNPJ</p>
-                </Link>
-            </div>
-            <div className="button-container">
-                <Link to="/rg" className="large-button">
-                    <img src="/images/rg.jpg" alt="RG" />
-                    <p>Findy RG</p>
-                </Link>
-                <Link to="/cnh" className="large-button">
-                    <img src="/images/cnh.jpg" alt="Habilitação" />
-                    <p>Findy Habilitação</p>
-                </Link>
-                <Link to="/telefone" className="large-button">
-                    <img src="/images/telefone.png" alt="telefone" />
-                    <p>Findy Telefone</p>
-                </Link>
-            </div>
-        </ContentPage>
+        <div className="matrix-container">
+            {/* <h1 className="matrix-title">Consultas Disponíveis</h1> */}
+            <ContentPage titulo="" caminho={[{nome: "Dashboard", link: "/"}]}>
+                <div className="matrix-content">
+                    <Link to="/cpf" className="matrix-link">
+                        <FontAwesomeIcon icon={faAddressCard} size="3x" />
+                        <p>Findy CPF</p>
+                        <h12>Busca dados por CPF</h12>
+                    </Link>
+                    <Link to="/email" className="matrix-link">
+                        <FontAwesomeIcon icon={faEnvelope} size="3x" />
+                        <p>Findy e-mail</p>
+                        <h12>Busca emails por CPF</h12>
+                    </Link>
+                    <Link to="/placas" className="matrix-link">
+                        <FontAwesomeIcon icon={faCar} size="3x" />
+                        <p>Findy Veículos</p>
+                        <h12>Dados do Veiculo pela PLACA</h12>
+                    </Link>
+                    <Link to="/cns" className="matrix-link">
+                        <FontAwesomeIcon icon={faIdCard} size="3x" />
+                        <p>Findy CNS</p>
+                        <h12>Busca dados pelo CNS/NIS</h12>
+                    </Link>
+                    <Link to="/tituloeleitor" className="matrix-link">
+                        <FontAwesomeIcon icon={faIdBadge} size="3x" />
+                        <p>Findy Tit. Eleitor</p>
+                        <h12>Busca dados por Titulo de Eleitor</h12>
+                    </Link>
+                    <Link to="/nome" className="matrix-link">
+                        <FontAwesomeIcon icon={faUser} size="3x" />
+                        <p>Findy Nome</p>
+                        <h12>Busca dados pelo Nome</h12>
+                    </Link>
+                    <Link to="/cep" className="matrix-link">
+                        <FontAwesomeIcon icon={faMapMarkerAlt} size="3x" />
+                        <p>Findy CEP</p>
+                        <h12>Endereço pelo CEP</h12>
+                    </Link>
+                    <Link to="/cpf" className="matrix-link">
+                        <FontAwesomeIcon icon={faAddressCard} size="3x" />
+                        <p>Findy Completo</p>
+                        <h12>Busca todos os dados pelo CPF</h12>
+                    </Link>
+                    <Link to="/cnpj" className="matrix-link">
+                        <FontAwesomeIcon icon={faBuilding} size="3x" />
+                        <p>Findy CNPJ</p>
+                        <h12>Dados da empresa pelo CNPJ</h12>
+                    </Link>
+                    <Link to="/rg" className="matrix-link">
+                        <FontAwesomeIcon icon={faIdCardAlt} size="3x" />
+                        <p>Findy RG</p>
+                        <h12>Busca dados pelo RG</h12>
+                    </Link>
+                    <Link to="/cnh" className="matrix-link">
+                        <FontAwesomeIcon icon={faAddressBook} size="3x" />
+                        <p>Findy Habilitação</p>
+                        <h12>Busca dados pela CNH</h12>
+                    </Link>
+                    <Link to="/placas" className="matrix-link">
+                        <FontAwesomeIcon icon={faCar} size="3x" />
+                        <p>Findy Condutor</p>
+                        <h12>Dados do motorista pela PLACA ou CPF</h12>
+                    </Link>
+                    <Link to="/telefone" className="matrix-link">
+                        <FontAwesomeIcon icon={faPhone} size="3x" />
+                        <p>Findy Celular</p>
+                        <h12>Busca dados pelo celular</h12>
+                    </Link>
+                    <Link to="/nome" className="matrix-link">
+                        <FontAwesomeIcon icon={faUser} size="3x" />
+                        <p>Findy Nome da Mãe</p>
+                        <h12>Busca dados pelo Nome da Mãe</h12>
+                    </Link>
+                </div>
+            </ContentPage>
+        </div>
     );
 };
 
