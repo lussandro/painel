@@ -65,10 +65,10 @@ const Home = () => {
                         <p>Findy Habilitação</p>
                         <h12>Busca dados pela CNH</h12>
                     </Link>
-                    <Link to="/placas" className="matrix-link">
+                    <Link to="/veiculos" className="matrix-link">
                         <FontAwesomeIcon icon={faCar} size="3x" />
-                        <p>Findy Condutor</p>
-                        <h12>Dados do motorista pela PLACA ou CPF</h12>
+                        <p>Findy Veiculos Full</p>
+                        <h12>Veiculos Completa, com dados do condutor e multas</h12>
                     </Link>
                     <Link to="/telefone" className="matrix-link">
                         <FontAwesomeIcon icon={faPhone} size="3x" />
