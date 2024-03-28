@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import html2pdf from 'html2pdf.js'; // Importe a biblioteca para gerar PDF
-import { CopyToClipboard } from 'react-copy-to-clipboard'; // Importe a biblioteca para copiar para a área de transferência
+import html2pdf from 'html2pdf.js'; 
+import { CopyToClipboard } from 'react-copy-to-clipboard'; 
 
 function Telefones() {
   const [telefoneData, setTelefoneData] = useState(null);
   const [error, setError] = useState(null);
   const [ddd, setDdd] = useState('');
   const [telefone, setTelefone] = useState('');
+  const [whatsappPicture, setWhatsappPicture] = useState('');
+
+  useEffect(() => {
+    if (telefoneData && telefoneData.picture) {
+      setWhatsappPicture(telefoneData.picture);
+    } else {
+      setWhatsappPicture(null); // Reset the picture if API returns null
+    }
+  }, [telefoneData]);
 
   const handleDddChange = (event) => {
     setDdd(event.target.value);
@@ -22,6 +31,21 @@ function Telefones() {
       const response = await axios.get(`https://cpf.lussandro.com.br/api/consulta_telefone?ddd=${ddd}&telefone=${telefone}`);
       setTelefoneData(response.data.data);
       setError(null);
+
+      const whatsappResponse = await axios.post('https://api.chatcoreapi.io/chat/fetchProfile/teste', {
+        number: `55${ddd}${telefone}`
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': 'atc1wumavgo61zv8n6zmm'
+        }
+      });
+
+      if (whatsappResponse.data && whatsappResponse.data.picture) {
+        setWhatsappPicture(whatsappResponse.data.picture);
+      } else {
+        setWhatsappPicture(null); // Reset the picture if API returns null
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
       setError(`Erro ao buscar os dados: ${error.message}`);
@@ -33,14 +57,12 @@ function Telefones() {
   };
 
   const handleGeneratePDF = () => {
-    // Lógica para gerar o PDF com os dados
     const element = document.getElementById('telefone-data');
     html2pdf().from(element).save();
   };
 
   const handleCopyToClipboard = () => {
-    // Lógica para copiar os dados para a área de transferência
-    const textToCopy = JSON.stringify(telefoneData); // Convertendo os dados em formato JSON
+    const textToCopy = JSON.stringify(telefoneData);
     navigator.clipboard.writeText(textToCopy);
     alert('Dados copiados para a área de transferência!');
   };
@@ -55,7 +77,7 @@ function Telefones() {
           value={ddd}
           onChange={handleDddChange}
           placeholder="DDD"
-          className="search-input ddd-input" // Adicionando a classe ddd-input
+          className="search-input ddd-input"
         />
         <input
           type="text"
@@ -70,59 +92,63 @@ function Telefones() {
       </div>
       {error && <p className="error">{error}</p>}
       {telefoneData && (
-        <div className="telefone-data">
+        <div className="telefone-data" id="telefone-data">
           <table className="user-table">
-          <h2><center>Dados Básicos</center></h2>
-              <tbody>
-                <tr>
-                  <td><strong>DDD:</strong></td>
-                  <td> {telefoneData[0]}</td>
-                </tr>
-                <tr>
-                  <td><strong>Telefone:</strong></td>
-                  <td> {telefoneData[1]}</td>
-                </tr>
-                <tr>
-                  <td><strong>CPF/CNPJ:</strong></td>
-                  <td> {telefoneData[2]}</td>
-                </tr>
-                <tr>
-                  <td><strong>Nome:</strong> </td>
-                  <td>{telefoneData[3]}</td>
-                </tr>
-                <tr>
-                  <td><strong>Tipo:</strong> </td>
-                  <td>{telefoneData[4]}</td>
-                </tr>
-                <tr>
-                  <td><strong>Logradouro:</strong> </td>
-                  <td>{telefoneData[5]}</td>
-                </tr>
-                <tr>
-                  <td><strong>Número:</strong></td>
-                  <td>{telefoneData[6]}</td>
-                </tr>
-                <tr>
-                  <td><strong>Bairro:</strong></td>
-                  <td>{telefoneData[7]}</td>
-                </tr>
-                <tr>
-                  <td><strong>CEP:</strong> </td>
-                  <td>{telefoneData[8]}</td>
-                </tr>
-                <tr>
-                  <td><strong>Cidade:</strong></td>
-                  <td>{telefoneData[9]}</td>
-                </tr>
-                <tr>
-                  <td><strong>Estado:</strong></td>
-                  <td>{telefoneData[10]}</td>
-                </tr>
+            <h2><center>Dados Básicos</center></h2>
+            <tbody>
+              <tr>
+                <td><strong>Foto Whatsapp:</strong></td>
+                <td style={{ textAlign: 'center', verticalAlign: 'middle' }}>{whatsappPicture ? <img src={whatsappPicture} alt="Foto do WhatsApp" style={{ maxWidth: '30%', height: 'auto' }} /> : <span>Sem foto</span>}</td>
+              </tr>
+              <tr>
+                <td><strong>DDD:</strong></td>
+                <td> {telefoneData[0]}</td>
+              </tr>
+              <tr>
+                <td><strong>Telefone:</strong></td>
+                <td> {telefoneData[1]}</td>
+              </tr>
+              <tr>
+                <td><strong>CPF/CNPJ:</strong></td>
+                <td> {telefoneData[2]}</td>
+              </tr>
+              <tr>
+                <td><strong>Nome:</strong> </td>
+                <td>{telefoneData[3]}</td>
+              </tr>
+              <tr>
+                <td><strong>Tipo:</strong> </td>
+                <td>{telefoneData[4]}</td>
+              </tr>
+              <tr>
+                <td><strong>Logradouro:</strong> </td>
+                <td>{telefoneData[5]}</td>
+              </tr>
+              <tr>
+                <td><strong>Número:</strong></td>
+                <td>{telefoneData[6]}</td>
+              </tr>
+              <tr>
+                <td><strong>Bairro:</strong></td>
+                <td>{telefoneData[7]}</td>
+              </tr>
+              <tr>
+                <td><strong>CEP:</strong> </td>
+                <td>{telefoneData[8]}</td>
+              </tr>
+              <tr>
+                <td><strong>Cidade:</strong></td>
+                <td>{telefoneData[9]}</td>
+              </tr>
+              <tr>
+                <td><strong>Estado:</strong></td>
+                <td>{telefoneData[10]}</td>
+              </tr>
             </tbody>
           </table>
           <div className="button-container">
             <button onClick={handleGeneratePDF} className="generate-pdf-button">
-            Gerar PDF
+              Gerar PDF
             </button>
             <CopyToClipboard text={JSON.stringify(telefoneData)}>
               <button className="copy-to-clipboard-button" onClick={handleCopyToClipboard}>

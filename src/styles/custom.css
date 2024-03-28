@@ -267,3 +267,42 @@ tr:nth-child(even) {
 .matrix-link p {
   margin: 0;
 }
+.user-panel {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.user-panel h2 {
+  margin-bottom: 10px;
+}
+
+.user-panel p {
+  margin-bottom: 5px;
+}
+
+.user-panel p strong {
+  margin-right: 5px;
+  font-weight: bold;
+}
+/* UserPanel.css */
+
+.save-button,
+.back-button,
+.edit-button {
+  background-color: #333;
+  color: #00ff00;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-button:hover,
+.back-button:hover,
+.edit-button:hover {
+  background-color: #555;
+}

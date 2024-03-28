@@ -8,6 +8,9 @@ import Telefones from "./pages/Telefones";
 import Cep from "./pages/Cep";
 import Cns from "./pages/Cns";
 import Emails from "./pages/Email";
+import UserPanel from "./pages/UserPanel";
+import CpfConsulta from "./pages/CpfConsulta";
+
 
 function App() {
   return (
@@ -22,7 +25,9 @@ function App() {
             <Route path="/telefone" element={<Telefones />} /> 
             <Route path="/cep" element={<Cep />} />        
             <Route path="/cns" element={<Cns />} />                    
-            <Route path="/email" element={<Emails />} />                                
+            <Route path="/email" element={<Emails />} />                 
+            <Route path="/user" element={<UserPanel />} />  
+            <Route path="/sniper" element={<CpfConsulta />} />                
           </Routes>
         </Menu>
       </BrowserRouter>

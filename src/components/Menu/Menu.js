@@ -29,14 +29,20 @@ const Menu = ({ children }) => {
 
                     
                     <li className="item-menu">
-                        <NavLink className="link-menu" to="/">
+                        <NavLink className="link-menu" to="/user">
                             <i class="fa fa-user-circle-o"></i>
                             <span>Minha Conta</span>
                         </NavLink>
                     </li>
                     <li className="item-menu">
                         <NavLink className="link-menu" to="/">
-                            <i class="fa fa-sign-out"></i>
+                            <i class="fa-solid fa-diagram-project"></i> 
+                            <span>API</span>
+                        </NavLink>
+                    </li>
+                    <li className="item-menu">
+                        <NavLink className="link-menu" to="/">
+                            <i class="fa fa-sign-out"></i>  
                             <span>Logout</span>
                         </NavLink>
                     </li>
