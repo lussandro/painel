@@ -28,7 +28,7 @@ function Telefones() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://api.local/api/consulta_telefone?ddd=${ddd}&telefone=${telefone}`);
+      const response = await axios.get(`https://api.local:5000/api/consulta_telefone?ddd=${ddd}&telefone=${telefone}`);
       setTelefoneData(response.data.data);
       setError(null);
 
