@@ -19,10 +19,10 @@ function CpfConsulta() {
     setDadosGeraisData({});
 
     try {
-      const cpfResponse = await axios.get(`https://cpf.lussandro.com.br/api/consulta_cpf?cpf=${cpf}`);
+      const cpfResponse = await axios.get(`https://api.local/api/consulta_cpf?cpf=${cpf}`);
       setCpfData(cpfResponse.data.complete_data);
 
-      const dadosGeraisResponse = await axios.get(`https://api.lussandro.com.br/consulta/${cpf}`);
+      const dadosGeraisResponse = await axios.get(`https://api.local/consulta/${cpf}`);
       setDadosGeraisData(dadosGeraisResponse.data[0]);
     } catch (error) {
       console.error('Error fetching data:', error);

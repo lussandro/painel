@@ -14,7 +14,7 @@ function Cpf() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://cpf.lussandro.com.br/api/consulta_cpf?cpf=${cpf}`);
+      const response = await axios.get(`https://api.local/api/consulta_cpf?cpf=${cpf}`);
       setUserData(response.data.complete_data); // Accessing complete_data from response
       setError(null);
     } catch (error) {
