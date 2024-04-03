@@ -11,6 +11,7 @@ import Emails from "./pages/Email";
 import UserPanel from "./pages/UserPanel";
 import CpfConsulta from "./pages/CpfConsulta";
 import ConsultaPlaca from "./pages/ConsultaPlaca";
+import ConsultaNome from "./pages/Nome";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/email" element={<Emails />} />                 
             <Route path="/user" element={<UserPanel />} />  
             <Route path="/sniper" element={<CpfConsulta />} />                
+            <Route path="/nome" element={<ConsultaNome />} />                
           </Routes>
         </Menu>
       </BrowserRouter>

@@ -15,7 +15,7 @@ function Emails() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://localhost:5001/consulta/${cpf}`);
+      const response = await axios.get(`http://localhost:5001/consulta/${cpf}`);
       const userData = response.data[0];
       setUserData(userData);
       setError(null);

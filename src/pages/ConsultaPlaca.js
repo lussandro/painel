@@ -14,7 +14,7 @@ function ConsultaPlaca() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://veiculos.local:3000/veiculo/${placa}`);
+      const response = await axios.get(`http://localhost:3000/veiculo/${placa}`);
       setVehicleData(response.data.data);
       setError(null);
     } catch (error) {
