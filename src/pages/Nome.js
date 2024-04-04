@@ -12,7 +12,7 @@ function ConsultaNome() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://65.21.240.99:5000/api/consulta_nome?nome=${nome}`);
+      const response = await axios.get(`https://cpf.lussandro.com.br/api/consulta_nome?nome=${nome}`);
       setUserData(response.data); // Setting received data to state
       setError(null);
     } catch (error) {
