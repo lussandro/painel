@@ -12,7 +12,7 @@ function Placas() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://api.local:5000/api/consulta_placa?placa=${placa}`);
+      const response = await axios.get(`http://65.21.240.99:5000/api/consulta_placa?placa=${placa}`);
       setVeiculoData(response.data.veiculo_data);
       setError(null);
     } catch (error) {

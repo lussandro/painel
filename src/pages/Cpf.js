@@ -14,7 +14,7 @@ function Cpf() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/consulta_cpf?cpf=${cpf}`);
+      const response = await axios.get(`http://65.21.240.99:5000/api/consulta_cpf?cpf=${cpf}`);
       setUserData(response.data.complete_data); // Accessing complete_data from response
       setError(null);
     } catch (error) {
