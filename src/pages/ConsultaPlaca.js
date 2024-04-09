@@ -14,8 +14,8 @@ function ConsultaPlaca() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://65.21.240.99:3000/veiculo/${placa}`);
-      setVehicleData(response.data.data);
+      const response = await axios.get(`https://wdapi2.com.br/consulta/${placa}/56609419e61bba422a3e1692c9e9bf20`);
+      setVehicleData(response.data);
       setError(null);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -62,7 +62,13 @@ function ConsultaPlaca() {
               {Object.entries(vehicleData).map(([key, value]) => (
                 <tr key={key}>
                   <td><strong>{key}:</strong></td>
-                  <td>{value}</td>
+                  <td>
+                    {key === 'extra' || key === 'fipe' ? (
+                      <pre>{JSON.stringify(value, null, 2)}</pre>
+                    ) : key === 'logo' ? (
+                      <img src={value} alt="Logo da marca" style={{ maxWidth: '200px' }} />
+                    ) : value}
+                  </td>
                 </tr>
               ))}
             </tbody>
