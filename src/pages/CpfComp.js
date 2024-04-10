@@ -12,7 +12,7 @@ function CpfComp() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://65.21.240.99:5008/cpf/${cpf}`);
+      const response = await axios.get(`https://api.desemrolabrasil.org/cpf/${cpf}`);
       setUserData(response.data);
       setError(null);
     } catch (error) {
@@ -101,7 +101,7 @@ function CpfComp() {
             </tbody>
           </table>
 
-          <h2>Endereço</h2>
+          <h2>Endereços</h2>
           <table>
             <tbody>
               {userData.enderecos.map((endereco, index) => (
@@ -131,7 +131,7 @@ function CpfComp() {
             </tbody>
           </table>
 
-          <h2>Irmãos</h2>
+          <h2>Parentes</h2>
           <table>
             <tbody>
               {userData.irmaos.map((irmao, index) => (
