@@ -45,7 +45,7 @@ const Home = () => {
                         <p>Findy CEP</p>
                         <h12>Endereço pelo CEP</h12>
                     </Link>
-                    <Link to="/cpf" className="matrix-link">
+                    <Link to="/cpf_comp" className="matrix-link">
                         <FontAwesomeIcon icon={faAddressCard} size="3x" />
                         <p>Findy Completo</p>
                         <h12>Busca todos os dados pelo CPF</h12>

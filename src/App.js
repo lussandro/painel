@@ -12,7 +12,7 @@ import UserPanel from "./pages/UserPanel";
 import CpfConsulta from "./pages/CpfConsulta";
 import ConsultaPlaca from "./pages/ConsultaPlaca";
 import ConsultaNome from "./pages/Nome";
-
+import CpfComp from "./pages/CpfComp";
 
 function App() {
   return (
@@ -32,6 +32,7 @@ function App() {
             <Route path="/user" element={<UserPanel />} />  
             <Route path="/sniper" element={<CpfConsulta />} />                
             <Route path="/nome" element={<ConsultaNome />} />                
+            <Route path="/cpf_comp" element={<CpfComp />} />                
           </Routes>
         </Menu>
       </BrowserRouter>
