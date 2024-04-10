@@ -12,7 +12,7 @@ function CpfComp() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5008/cpf/${cpf}`);
+      const response = await axios.get(`http://65.21.240.99:5008/cpf/${cpf}`);
       setUserData(response.data);
       setError(null);
     } catch (error) {
