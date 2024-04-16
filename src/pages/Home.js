@@ -15,7 +15,7 @@ const Home = () => {
                         <p>Findy CPF</p>
                         <h12>Busca dados por CPF</h12>
                     </Link>
-                    <Link to="/cpf" className="matrix-link">
+                    <Link to="/email" className="matrix-link">
                         <FontAwesomeIcon icon={faEnvelope} size="3x" />
                         <p>Findy e-mail</p>
                         <h12>Busca emails por CPF</h12>
