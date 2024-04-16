@@ -18,7 +18,7 @@ const Home = () => {
                     <Link to="/email" className="matrix-link">
                         <FontAwesomeIcon icon={faEnvelope} size="3x" />
                         <p>Findy e-mail</p>
-                        <h12>Busca emails por CPF</h12>
+                        <h12>Busca Nome e CPF pelo E-mail</h12>
                     </Link>
                     <Link to="/placas" className="matrix-link">
                         <FontAwesomeIcon icon={faCar} size="3x" />

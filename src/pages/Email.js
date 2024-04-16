@@ -27,7 +27,7 @@ function Emails() {
 
   return (
     <div className="container">
-      <h1>Consulta de Nomes e CPFs por E-mail</h1>
+      <h1>Consulta de Nome e CPF pelo E-mail</h1>
       <div className="search-container">
         <input
           type="text"
