@@ -27,7 +27,7 @@ function CpfComp() {
 
   return (
     <div className="container">
-      <h1>Consulta de CPF</h1>
+      <h1>Consulta Completa pelo CPF</h1>
       <div className="search-container">
         <input
           type="text"
@@ -98,6 +98,18 @@ function CpfComp() {
                 <td><strong>NACIONALIDADE:</strong></td>
                 <td>{userData.NACIONALID}</td>
               </tr>
+            </tbody>
+          </table>
+          <h2>Emails</h2>
+
+          <table>
+            <tbody>
+              {userData.emails.map((email, index) => (
+                <tr key={index}>
+                  <td><strong>Email:</strong></td>
+                  <td>{email}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
 
